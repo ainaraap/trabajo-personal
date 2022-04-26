@@ -26,7 +26,7 @@ dolls_repository = DollsRepository(database_path)
 dolls_repository.save(muneca_1)
 dolls_repository.save(muneca_2)
 
-
+print("Base de datos creada")
 
 
 

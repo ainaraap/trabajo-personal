@@ -4,12 +4,9 @@ from src.domain.dolls import DollsRepository
 from src.webserver import create_app
 
 
-database_path = "data/database.db"
+database_path = "data/dolls.db"
 
-repositories = {
-    
-    "dolls": DollsRepository(database_path)
-}
+repositories = {"dolls": DollsRepository(database_path)}
 
 app = create_app(repositories)
 
