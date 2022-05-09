@@ -5,3 +5,11 @@
   </div>
   <router-view />
 </template>
+
+<style scoped>
+#nav {
+  margin: -10px;
+  text-align: end;
+  
+}
+</style>

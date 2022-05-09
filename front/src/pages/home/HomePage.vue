@@ -13,9 +13,7 @@
 </script>
 
 <style scoped>
-h1 {
-  font-style: italic;
-}
+
 img {
   margin: 1px;
 }

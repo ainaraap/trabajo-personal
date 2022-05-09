@@ -13,13 +13,13 @@ muneca_1 = Doll(
         doll_id= 1,
         size= "25 cm",
         price= 25.50,
-        photo= "URL1"
+        img= "muneca1.png"
 )
 muneca_2 = Doll(
         doll_id=  2,
         size= "30 cm",
         price= 29.50,
-        photo= "URL2"
+        img= "muneca2.png"
 )
 
 dolls_repository = DollsRepository(database_path)

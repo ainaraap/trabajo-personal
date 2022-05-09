@@ -12,6 +12,11 @@ const routes = [
     name: 'Dolls',
     component: () => import('@/pages/dollsCatalog/DollsCatalogPage.vue'),
   },
+  {
+    path: '/dollDetail',
+    name: 'Detail',
+    component: () => import('@/pages/dollDetail/DetailPage.vue'),
+  }
 ]
 
 const router = createRouter({
