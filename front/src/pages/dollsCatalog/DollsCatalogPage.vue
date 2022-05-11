@@ -3,12 +3,13 @@
   <div class="dollCatalog">
     <article v-for="doll in catalog" :key="doll.id">
       <section>
-        <p>{{ doll.img }}</p>
+        <img class="munecas" :src="doll.img" />
         <p>{{ doll.doll_id }}</p>
         <p>{{ doll.price }}</p>
         <p>{{ doll.size }}</p>
-
-        <button class="boton-detalle">VER DETALLE MUÑECA</button>
+        <router-link to="/dollDetail">
+          <button class="boton-detalle">VER DETALLE MUÑECA</button>
+        </router-link>
       </section>
     </article>
   </div>
@@ -35,12 +36,16 @@ export default {
 </script>
 
 <style scoped>
+.dollCatalog {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
 img {
   margin: 1px;
 }
 section {
-  border: 2px solid black;
-  margin: 1em 10em;
+  border: 1px solid #4d5a91;
+  margin: 0.5em 1em;
   padding: 10px;
 }
 .boton-detalle {
@@ -50,5 +55,9 @@ section {
   border-color: #381a3f;
   margin: 10px;
 }
-
+.munecas {
+  max-width: 15em;
+  max-height: 15em;
+  border: 4px solid #4d5a91;
+}
 </style>

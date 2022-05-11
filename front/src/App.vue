@@ -10,6 +10,7 @@
 #nav {
   margin: -10px;
   text-align: end;
+  padding: 10px 50px;
   
 }
 </style>

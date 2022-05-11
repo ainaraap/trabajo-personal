@@ -17,4 +17,11 @@ def create_app(repositories):
         dolls = repositories["dolls"].get_dolls()
         return object_to_json(dolls)
 
+    
+    @app.route("/api/dollsDetail/<doll_id>", methods=["GET"])
+    def doll_get_by_id(doll_id):
+        
+        doll_id = repositories["dolls"].get_by_id(doll_id)
+        return object_to_json(doll_id)
+
     return app

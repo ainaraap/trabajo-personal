@@ -56,6 +56,18 @@ class DollsRepository:
 
         return result
 
+    def get_by_id(self, doll_id):
+
+        sql = """SELECT * FROM dolls WHERE id= :id"""
+        conn = self.create_conn()
+        cursor = conn.cursor()
+        cursor.execute(sql, {"id": doll_id})
+
+        data = cursor.fetchone()
+        one_doll = Doll(doll_id=data["doll_id"], size=data["size"], price=data["price"], img=data["img"])
+        return one_doll
+
+
     def save(self, doll):
 
         sql = """insert into dolls

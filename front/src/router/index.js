@@ -13,7 +13,7 @@ const routes = [
     component: () => import('@/pages/dollsCatalog/DollsCatalogPage.vue'),
   },
   {
-    path: '/dollDetail',
+    path: '/dollDetail/:doll_id',
     name: 'Detail',
     component: () => import('@/pages/dollDetail/DetailPage.vue'),
   }
