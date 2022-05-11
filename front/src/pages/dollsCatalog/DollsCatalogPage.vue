@@ -4,9 +4,9 @@
     <article v-for="doll in catalog" :key="doll.id">
       <section>
         <img class="munecas" :src="doll.img" />
-        <p>{{ doll.doll_id }}</p>
+        <p>{{ doll.name }}</p>
         <p>{{ doll.price }}</p>
-        <p>{{ doll.size }}</p>
+
         <router-link to="/dollDetail">
           <button class="boton-detalle">VER DETALLE MUÑECA</button>
         </router-link>
