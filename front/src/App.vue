@@ -1,16 +1,16 @@
 <template>
   <div id="nav">
-    <router-link to="/">Home</router-link>|
-    <router-link to="/dollsCatalog">Dolls</router-link>
+    <router-link to="/">Pagina principal</router-link>|
+    <router-link to="/dollsCatalog">Catálogo</router-link>
   </div>
   <router-view />
 </template>
 
 <style scoped>
 #nav {
-  margin: -10px;
-  text-align: end;
-  padding: 10px 50px;
+  
+  text-align: center;
+  padding: 10px 50px 25px 10px;
   
 }
 </style>
