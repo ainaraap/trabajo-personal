@@ -1,6 +1,7 @@
 from flask import Flask
 from flask_cors import CORS
 
+
 from src.lib.utils import object_to_json
 
 
@@ -17,11 +18,9 @@ def create_app(repositories):
         dolls = repositories["dolls"].get_dolls()
         return object_to_json(dolls)
 
-    
-    @app.route("/api/dollsDetail/<doll_id>", methods=["GET"])
+    @app.route("/api/dolls/<doll_id>", methods=["GET"])
     def doll_get_by_id(doll_id):
-        
-        doll_id = repositories["dolls"].get_by_id(doll_id)
-        return object_to_json(doll_id)
+        doll_by_id = repositories["dolls"].get_dolls_by_id(doll_id)
+        return object_to_json(doll_by_id)
 
     return app

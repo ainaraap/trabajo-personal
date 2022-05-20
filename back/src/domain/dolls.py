@@ -1,4 +1,3 @@
-from os import name
 import sqlite3
 
 
@@ -41,7 +40,7 @@ class DollsRepository:
         cursor = conn.cursor()
         cursor.execute(sql)
         conn.commit()
-    
+
     def get_dolls(self):
         sql = """select * from dolls"""
         conn = self.create_conn()
@@ -57,17 +56,16 @@ class DollsRepository:
 
         return result
 
-    def get_by_id(self, doll_id):
+    def get_dolls_by_id(self, doll_id):
 
-        sql = """SELECT * FROM dolls WHERE id= :id"""
+        sql = """SELECT * FROM dolls where doll_id=:doll_id"""
         conn = self.create_conn()
         cursor = conn.cursor()
-        cursor.execute(sql, {"id": doll_id})
+        cursor.execute(sql, {"doll_id": doll_id})
 
         data = cursor.fetchone()
-        one_doll = Doll(doll_id=data["doll_id"], name=data["name"], price=data["price"], img=data["img"])
-        return one_doll
-
+        doll = Doll(**data)
+        return doll
 
     def save(self, doll):
 
