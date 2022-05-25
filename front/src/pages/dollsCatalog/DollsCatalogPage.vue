@@ -8,7 +8,9 @@
         <p>{{ doll.price }}</p>
 
         <router-link to="/dollDetail">
-          <button class="boton-detalle">VER DETALLE MUÑECA</button>
+          <button class="boton-detalle" @click="openDollDetail(doll)">
+            VER DETALLE
+          </button>
         </router-link>
       </section>
     </article>
@@ -30,6 +32,9 @@ export default {
     async loadData() {
       const response = await fetch("http://localhost:5000/api/dolls");
       this.catalog = await response.json();
+    },
+    openDollDetail(doll) {
+      this.$router.push("/dolls/dollDetail" + doll.id);
     },
   },
 };

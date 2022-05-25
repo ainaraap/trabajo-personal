@@ -4,7 +4,7 @@ from src.webserver import create_app
 from src.domain.dolls import DollsRepository, Doll
 
 
-def test_shuld_return_doll_by_id():
+def test_should_return_doll_by_id():
     dolls_repository = DollsRepository(temp_file())
     app = create_app(repositories={"dolls": dolls_repository})
     client = app.test_client()
@@ -17,7 +17,7 @@ def test_shuld_return_doll_by_id():
     )
     dolls_repository.save(muneca_1)
 
-    response = client.get("/api/dolls/1")
+    response = client.get("/api/dolls/<doll_id>")
 
     assert response.status_code == 200
     assert response.json == [
