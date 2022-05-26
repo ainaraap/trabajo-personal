@@ -1,20 +1,17 @@
 <template>
   <img src="@/assets/img/MUÑECAS.png" />
-  <div class="dollCatalog">
-    <article v-for="doll in catalog" :key="doll.id">
-      <section>
-        <img class="munecas" :src="doll.img" />
-        <p>{{ doll.name }}</p>
-        <p>{{ doll.price }}</p>
 
-        <router-link to="/dollDetail">
-          <button class="boton-detalle" @click="openDollDetail(doll)">
-            VER DETALLE
-          </button>
-        </router-link>
-      </section>
+  <section class="dollCatalog">
+    <article v-for="doll in catalog" :key="doll.doll_id">
+      <img class="munecas" :src="doll.img" />
+      <p>{{ doll.name }}</p>
+      <p>{{ doll.price }}</p>
+
+      <router-link class="irDetalle" :to="`/dollDetail/${doll.doll_id}`"
+        >Ver detalle</router-link
+      >
     </article>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -34,7 +31,7 @@ export default {
       this.catalog = await response.json();
     },
     openDollDetail(doll) {
-      this.$router.push("/dolls/dollDetail" + doll.id);
+      this.$router.push("/dollsCatalog/" + doll.doll_id);
     },
   },
 };
@@ -49,11 +46,10 @@ img {
   margin: 1px;
 }
 section {
-  border: 1px solid #4d5a91;
   margin: 0.5em 1em;
   padding: 10px;
 }
-.boton-detalle {
+.irDetalle {
   background-color: #9781c9;
   padding: 10px;
   border-radius: 10%;
