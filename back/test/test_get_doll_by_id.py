@@ -4,7 +4,7 @@ from src.webserver import create_app
 from src.domain.dolls import DollsRepository, Doll
 
 
-def test_should_return_doll_by_id():
+def test_should_return_existing__doll_by_id():
     dolls_repository = DollsRepository(temp_file())
     app = create_app(repositories={"dolls": dolls_repository})
     client = app.test_client()
@@ -15,12 +15,20 @@ def test_should_return_doll_by_id():
         price="25.50 €",
         img="https://i.ibb.co/HrRB4ty/muneca1.png",
     )
+    muneca_2 = Doll(
+        doll_id=2,
+        name="Cojín",
+        price="29.50 €",
+        img="https://i.ibb.co/DpKtm2H/muneca2.png",
+    )
+
     dolls_repository.save(muneca_1)
+    dolls_repository.save(muneca_2)
 
-    response = client.get("/api/dolls/<doll_id>")
+    response_muneca_1 = client.get("/api/dolls/1")
 
-    assert response.status_code == 200
-    assert response.json == [
+    # assert response.status_code == 200
+    assert response_muneca_1.json == [
         {
             "doll_id": 1,
             "name": "Muñeca sentada",

@@ -58,7 +58,7 @@ class DollsRepository:
 
     def get_dolls_by_id(self, doll_id):
 
-        sql = """SELECT doll_id FROM dolls """
+        sql = """SELECT * FROM dolls WHERE doll_id=:doll_id """
         conn = self.create_conn()
         cursor = conn.cursor()
         cursor.execute(sql, {"doll_id": doll_id})
