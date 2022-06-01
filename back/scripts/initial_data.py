@@ -13,21 +13,28 @@ muneca_1 = Doll(
     doll_id=1,
     name="Muñeca sentada",
     price="25.50 €",
-    img="https://i.ibb.co/HrRB4ty/muneca1.png",
+    img="https://i.ibb.co/jGf5KPS/muneca1.png",
 )
 muneca_2 = Doll(
-    doll_id=2, name="Cojín", price="29.50 €", img="https://i.ibb.co/DpKtm2H/muneca2.png"
+    doll_id=2, name="Cojín", price="29.50 €", img="https://i.ibb.co/4PK90b5/muneca2.png"
 )
 muneca_3 = Doll(
     doll_id=3,
     name="Muñeca portapapel WC ",
     price="30 €",
-    img="https://i.ibb.co/n6hG04G/muneca3.jpg",
+    img="https://i.ibb.co/FYSpNL3/muneca3.png",
+)
+muneca_4 = Doll(
+    doll_id=4,
+    name="Muñeca llavero ",
+    price="15 €",
+    img="https://i.ibb.co/z66d2D3/muneca4.png",
 )
 
 dolls_repository = DollsRepository(database_path)
 dolls_repository.save(muneca_1)
 dolls_repository.save(muneca_2)
 dolls_repository.save(muneca_3)
+dolls_repository.save(muneca_4)
 
 print("Base de datos creada")
