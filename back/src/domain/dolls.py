@@ -2,11 +2,12 @@ import sqlite3
 
 
 class Doll:
-    def __init__(self, doll_id, name, price, img):
+    def __init__(self, doll_id, name, price, img, size):
         self.doll_id = doll_id
         self.name = name
         self.price = price
         self.img = img
+        self.size = size
 
     def to_dict(self):
         return {
@@ -14,6 +15,7 @@ class Doll:
             "name": self.name,
             "price": self.price,
             "img": self.img,
+            "size": self.size,
         }
 
 
@@ -32,8 +34,9 @@ class DollsRepository:
             create table if not exists dolls (
                 doll_id integer,
                 name text,
-                price integer,
-                img varchar
+                price text,
+                img varchar,
+                size text
                 )
                 """
         conn = self.create_conn()
@@ -70,8 +73,8 @@ class DollsRepository:
     def save(self, doll):
 
         sql = """insert into dolls
-        (doll_id, name, price, img) values (
-            :doll_id, :name, :price, :img )"""
+        (doll_id, name, price, img, size) values (
+            :doll_id, :name, :price, :img, :size )"""
 
         conn = self.create_conn()
         cursor = conn.cursor()
