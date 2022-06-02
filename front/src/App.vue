@@ -6,11 +6,3 @@
   <router-view />
 </template>
 
-<style scoped>
-#nav {
-  
-  text-align: center;
-  padding: 10px 50px 25px 10px;
-  
-}
-</style>

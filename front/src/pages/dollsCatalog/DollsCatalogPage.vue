@@ -1,17 +1,19 @@
 <template>
-  <img src="@/assets/img/MUÑECAS.png" />
+  <img class="cabecera" src="@/assets/img/MUÑECAS.png" />
 
   <section class="dollCatalog">
     <article v-for="doll in catalog" :key="doll.doll_id">
-      <img class="munecas" :src="doll.img" />
-      <div>
-        <p>{{ doll.name }}</p>
-        <p>{{ doll.price }}</p>
-      </div>
+      <div class="munecacomp">
+        <img class="munecas" :src="doll.img" />
+        <div>
+          <p>{{ doll.name }}</p>
+          <p>{{ doll.price }}</p>
+        </div>
 
-      <router-link class="irDetalle" :to="`/dollDetail/${doll.doll_id}`"
-        >Ver detalle</router-link
-      >
+        <router-link class="irDetalle" :to="`/dollDetail/${doll.doll_id}`"
+          >Ver detalle</router-link
+        >
+      </div>
     </article>
   </section>
 </template>
@@ -40,19 +42,18 @@ export default {
 </script>
 
 <style scoped>
+.cabecera {
+  margin: -10px 1px;
+  height: 100px;
+}
 .dollCatalog {
   display: grid;
   grid-template-columns: 2fr 2fr 2fr;
 }
-img {
-  margin: -10px 1px;
-}
-section {
-  padding: 10px;
-}
+
 .irDetalle {
   text-decoration: none;
-  padding: 0.6rem 1rem;
+  padding: 0.5rem 0.5rem;
   border: 1px solid #4d5a91;
   border-radius: 4px;
   background-color: #4d5a91;
@@ -86,9 +87,9 @@ section {
 }
 
 .munecas {
-  max-width: 15em;
-  max-height: 15em;
-  border: 4px solid #4d5a91;
+  max-width: 13em;
+  max-height: 13em;
+  border: 1px solid #4d5a91;
   padding: 2em;
   background-color: #ffd7cd;
 }

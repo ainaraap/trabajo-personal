@@ -1,11 +1,11 @@
 <template>
   <div class="home">
     <img src="@/assets/img/MUÑECAS.png" />
-    <p>
+    <section>
       <router-link to="/dollsCatalog">
-        <button>VER CATALOGO</button></router-link
+        <button class="catalog">VER CATALOGO</button></router-link
       >
-    </p>
+    </section>
   </div>
 </template>
 
@@ -14,9 +14,11 @@
 
 <style scoped>
 img {
-  margin: 1px;
+  margin: 50px;
+  height: 200px;
 }
-button {
+.catalog {
+  margin: 10px;
   text-decoration: none;
   padding: 0.6rem 1rem;
   border: 1px solid #4d5a91;
@@ -38,8 +40,8 @@ button {
   background-image: linear-gradient(#4d5a91 10%, #394b9c 100%);
 }
 
-.irDetalle:hover,
-.irDetalle:focus {
+.catalog:hover,
+.catalog:focus {
   background-color: #4d5a91;
   background-image: -webkit-gradient(
     linear,
