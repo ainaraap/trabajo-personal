@@ -37,11 +37,19 @@ muneca_4 = Doll(
     img="https://i.ibb.co/z66d2D3/muneca4.png",
     size="15cm",
 )
+muneca_5 = Doll(
+    doll_id=5,
+    name="Muñeca bailarina",
+    price="30€",
+    img="https://i.ibb.co/cwJ2QYH/muneca5.png",
+    size="40cm",
+)
 
 dolls_repository = DollsRepository(database_path)
 dolls_repository.save(muneca_1)
 dolls_repository.save(muneca_2)
 dolls_repository.save(muneca_3)
 dolls_repository.save(muneca_4)
+dolls_repository.save(muneca_5)
 
 print("Base de datos creada")
