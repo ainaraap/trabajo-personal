@@ -14,6 +14,7 @@ def test_should_return_catalog():
         name="Muñeca sentada",
         price="25.50 €",
         img="https://i.ibb.co/HrRB4ty/muneca1.png",
+        size="25cm",
     )
 
     muneca_2 = Doll(
@@ -21,6 +22,7 @@ def test_should_return_catalog():
         name="Cojín",
         price="29.50 €",
         img="https://i.ibb.co/DpKtm2H/muneca2.png",
+        size="43cm",
     )
 
     dolls_repository.save(muneca_1)
@@ -34,11 +36,13 @@ def test_should_return_catalog():
             "name": "Muñeca sentada",
             "price": "25.50 €",
             "img": "https://i.ibb.co/HrRB4ty/muneca1.png",
+            "size": "25cm",
         },
         {
             "doll_id": 2,
             "name": "Cojín",
             "price": "29.50 €",
             "img": "https://i.ibb.co/DpKtm2H/muneca2.png",
+            "size": "43cm",
         },
     ]

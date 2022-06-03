@@ -14,25 +14,26 @@ def test_should_return_existing__doll_by_id():
         name="Muñeca sentada",
         price="25.50 €",
         img="https://i.ibb.co/HrRB4ty/muneca1.png",
+        size="25cm",
     )
     muneca_2 = Doll(
         doll_id=2,
         name="Cojín",
         price="29.50 €",
         img="https://i.ibb.co/DpKtm2H/muneca2.png",
+        size="43cm",
     )
 
     dolls_repository.save(muneca_1)
     dolls_repository.save(muneca_2)
 
-    response_muneca_1 = client.get("/api/dolls/1")
+    response = client.get("/api/dolls/1")
 
-    # assert response.status_code == 200
-    assert response_muneca_1.json == [
-        {
-            "doll_id": 1,
-            "name": "Muñeca sentada",
-            "price": "25.50 €",
-            "img": "https://i.ibb.co/HrRB4ty/muneca1.png",
-        }
-    ]
+    assert response.status_code == 200
+    assert response.json == {
+        "doll_id": 1,
+        "name": "Muñeca sentada",
+        "price": "25.50 €",
+        "img": "https://i.ibb.co/HrRB4ty/muneca1.png",
+        "size": "25cm",
+    }
