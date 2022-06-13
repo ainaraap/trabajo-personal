@@ -9,11 +9,11 @@
           <p>{{ doll.name }}</p>
           <p>{{ doll.price }}</p>
         </div>
-
-        <router-link class="irDetalle" :to="`/dollDetail/${doll.doll_id}`"
-          >Ver detalle</router-link
-        >
       </div>
+
+      <router-link class="irDetalle" :to="`/dollDetail/${doll.doll_id}`"
+        >Ver detalle</router-link
+      >
     </article>
   </section>
 </template>
@@ -48,7 +48,7 @@ export default {
 }
 .dollCatalog {
   display: grid;
-  grid-template-columns: 2fr 2fr 2fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
 .irDetalle {
@@ -87,16 +87,16 @@ export default {
 }
 
 .munecas {
-  max-width: 13em;
-  max-height: 13em;
+  max-width: 15em;
+  max-height: 10em;
   border: 1px solid #4d5a91;
   padding: 2em;
   background-color: #ffd7cd;
 }
 article {
-  margin: 1em;
+  margin: 0.5em;
 }
 div {
-  margin: 1em;
+  margin: 1.5em;
 }
 </style>
