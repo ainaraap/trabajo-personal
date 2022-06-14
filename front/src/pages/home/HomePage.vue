@@ -26,6 +26,8 @@ img {
   background-color: #4d5a91;
   color: #fff;
 
+  cursor: pointer;
+
   font-size: 1.5rem;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset,
