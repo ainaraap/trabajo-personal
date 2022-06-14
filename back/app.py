@@ -1,12 +1,16 @@
 import sqlite3
 
 from src.domain.dolls import DollsRepository
+from src.domain.user import UserRepository
 from src.webserver import create_app
 
 
 database_path = "data/dolls.db"
 
-repositories = {"dolls": DollsRepository(database_path)}
+repositories = {
+    "dolls": DollsRepository(database_path),
+    "users": UserRepository(database_path),
+}
 
 app = create_app(repositories)
 
