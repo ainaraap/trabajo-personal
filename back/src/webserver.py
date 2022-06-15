@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, request
 from flask_cors import CORS
 
 
@@ -22,5 +22,15 @@ def create_app(repositories):
     def doll_get_by_id(doll_id):
         doll = repositories["dolls"].get_dolls_by_id(doll_id)
         return object_to_json(doll)
+
+    @app.route("/auth/admin", methods=["POST"])
+    def login():
+        body = request.json
+        user = repositories["users"].get_by_id(body["user"])
+
+        if user is None or (body["password"]) != user.password:
+            return "", 401
+
+        return user.to_dict(), 200
 
     return app
