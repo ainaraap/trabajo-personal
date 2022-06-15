@@ -9,3 +9,20 @@
   <router-view />
 </template>
 
+
+<script>
+import { useStorage } from "@vueuse/core";
+
+export default {
+  data() {
+    return {
+      localUser: useStorage("user", {}),
+    };
+  },
+  computed: {
+    loggedUser() {
+      return this.localUser.name;
+    },
+  },
+};
+</script>

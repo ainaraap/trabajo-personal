@@ -21,7 +21,32 @@
   </body>
 </template>
 
+<script>
+import { useStorage } from "@vueuse/core";
+import { admin } from "@/services/auth.js";
 
+export default {
+  data() {
+    return {
+      user: "",
+      password: "",
+      auth: useStorage("auth", {}),
+    };
+  },
+  methods: {
+    async onButtonClicked() {
+      const response = await admin(this.user, this.password);
+      console.log("response", response);
+
+      const auth = await response.json();
+      console.log("auth", auth);
+
+      this.auth = auth;
+      this.$router.push("/dolls");
+    },
+  },
+};
+</script>
 
 
 
