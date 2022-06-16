@@ -11,6 +11,7 @@ def test_should_return_catalog():
 
     muneca_1 = Doll(
         doll_id=1,
+        user_id="1",
         name="Muñeca sentada",
         price="25.50 €",
         img="https://i.ibb.co/HrRB4ty/muneca1.png",
@@ -19,6 +20,7 @@ def test_should_return_catalog():
 
     muneca_2 = Doll(
         doll_id=2,
+        user_id="1",
         name="Cojín",
         price="29.50 €",
         img="https://i.ibb.co/DpKtm2H/muneca2.png",
@@ -33,6 +35,7 @@ def test_should_return_catalog():
     assert response.json == [
         {
             "doll_id": 1,
+            "user_id": "1",
             "name": "Muñeca sentada",
             "price": "25.50 €",
             "img": "https://i.ibb.co/HrRB4ty/muneca1.png",
@@ -40,6 +43,7 @@ def test_should_return_catalog():
         },
         {
             "doll_id": 2,
+            "user_id": "1",
             "name": "Cojín",
             "price": "29.50 €",
             "img": "https://i.ibb.co/DpKtm2H/muneca2.png",

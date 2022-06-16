@@ -11,6 +11,7 @@ def test_should_return_existing__doll_by_id():
 
     muneca_1 = Doll(
         doll_id=1,
+        user_id="1",
         name="Muñeca sentada",
         price="25.50 €",
         img="https://i.ibb.co/HrRB4ty/muneca1.png",
@@ -18,6 +19,7 @@ def test_should_return_existing__doll_by_id():
     )
     muneca_2 = Doll(
         doll_id=2,
+        user_id="1",
         name="Cojín",
         price="29.50 €",
         img="https://i.ibb.co/DpKtm2H/muneca2.png",
@@ -32,6 +34,7 @@ def test_should_return_existing__doll_by_id():
     assert response.status_code == 200
     assert response.json == {
         "doll_id": 1,
+        "user_id": "1",
         "name": "Muñeca sentada",
         "price": "25.50 €",
         "img": "https://i.ibb.co/HrRB4ty/muneca1.png",
