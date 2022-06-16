@@ -23,7 +23,7 @@ def create_app(repositories):
         doll = repositories["dolls"].get_dolls_by_id(doll_id)
         return object_to_json(doll)
 
-    @app.route("/auth/admin", methods=["POST"])
+    @app.route("/auth/admin", methods=["GET"])
     def login():
         body = request.json
         user = repositories["users"].get_by_id(body["user"])
