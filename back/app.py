@@ -9,7 +9,7 @@ database_path = "data/dolls.db"
 
 repositories = {
     "dolls": DollsRepository(database_path),
-    "users": UserRepository(database_path),
+    "user": UserRepository(database_path),
 }
 
 app = create_app(repositories)

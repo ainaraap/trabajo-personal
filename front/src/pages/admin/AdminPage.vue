@@ -1,24 +1,12 @@
 <template>
   <img class="cabecera" src="@/assets/img/MUÑECAS.png" />
 
-  <body>
-    <form>
-      <input
-        type="text"
-        name="username"
-        class="text-field"
-        placeholder="Usuario"
-      />
-      <input
-        type="password"
-        name="password"
-        class="text-field"
-        placeholder="Contraseña"
-      />
+  <section>
+    <input type="text" v-model="user" class="text-field" />
+    <input type="password" v-model="password" class="text-field" />
 
-      <button class="button" @click="onButtonClicked">Entrar</button>
-    </form>
-  </body>
+    <button class="button" @click="onButtonClicked">Entrar</button>
+  </section>
 </template>
 
 <script>
@@ -36,13 +24,18 @@ export default {
   methods: {
     async onButtonClicked() {
       const response = await admin(this.user, this.password);
+      const loginStatus = response.status;
       console.log("response", response);
 
-      const auth = await response.json();
-      console.log("auth", auth);
+      if (loginStatus === 401) {
+        alert("unauthorized");
+      } else {
+        const auth = await response.json();
+        console.log("auth", auth);
 
-      this.auth = auth;
-      this.$router.push("/dolls");
+        this.auth = auth;
+        this.$router.push("/dollsCatalog");
+      }
     },
   },
 };
@@ -57,7 +50,7 @@ export default {
   height: 100px;
 }
 
-form {
+section {
   width: 280px;
   height: 260px;
   margin: auto;
@@ -67,7 +60,7 @@ form {
   text-align: center;
 }
 
-form .text-field {
+section .text-field {
   border: 1px solid #a6a6a6;
   width: 230px;
   height: 40px;
@@ -79,7 +72,7 @@ form .text-field {
   outline: none;
 }
 
-form .button {
+section .button {
   border-radius: 3px;
   border: 1px solid #336895;
   box-shadow: inset 0 1px 0 #8dc2f0;
@@ -96,7 +89,7 @@ form .button {
   font-size: 13px;
 }
 
-form .button:active {
+section .button:active {
   box-shadow: inset 0 0 2px rgba(0, 0, 0, 0.3), 0 1px 0 white;
 }
 </style>

@@ -23,10 +23,10 @@ def create_app(repositories):
         doll = repositories["dolls"].get_dolls_by_id(doll_id)
         return object_to_json(doll)
 
-    @app.route("/auth/admin", methods=["GET"])
-    def login():
+    @app.route("/auth/admin", methods=["POST"])
+    def admin():
         body = request.json
-        user = repositories["users"].get_by_id(body["user"])
+        user = repositories["user"].get_by_id(body["user"])
 
         if user is None or (body["password"]) != user.password:
             return "", 401
