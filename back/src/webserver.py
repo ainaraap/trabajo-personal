@@ -1,5 +1,6 @@
 from flask import Flask, request
 from flask_cors import CORS
+from src.domain.messages import Message
 
 
 from src.lib.utils import object_to_json
@@ -32,5 +33,23 @@ def create_app(repositories):
             return "", 401
 
         return user.to_dict(), 200
+
+    @app.route("/api/messagesList", methods=["POST"])
+    def messages_post():
+        body = request.json
+        message = Message(
+            name=body["name"],
+            phone=body["phone"],
+            message=body["message"],
+        )
+        print(message)
+        repositories["messages"].save(message)
+
+        return ""
+
+    @app.route("/api/messagesList", methods=["GET"])
+    def messages_get():
+        message = repositories["messages"].get_messages()
+        return object_to_json(message), 200
 
     return app

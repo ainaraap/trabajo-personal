@@ -1,5 +1,6 @@
 import sqlite3
 
+from src.domain.messages import MessagesRepository
 from src.domain.dolls import DollsRepository
 from src.domain.user import UserRepository
 from src.webserver import create_app
@@ -10,6 +11,7 @@ database_path = "data/dolls.db"
 repositories = {
     "dolls": DollsRepository(database_path),
     "user": UserRepository(database_path),
+    "messages": MessagesRepository(database_path),
 }
 
 app = create_app(repositories)

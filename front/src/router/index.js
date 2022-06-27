@@ -21,7 +21,18 @@ const routes = [
     path: '/admin',
     name: 'Admin',
     component: () => import('@/pages/admin/AdminPage.vue'),
+  },
+  {
+    path: '/form',
+    name: 'Form',
+    component: () => import('@/pages/form/FormMessagesPage.vue'),
+  },
+  {
+    path: '/messagesList',
+    name: 'MessagesList',
+    component: () => import('@/pages/messages/ListMessagesPage.vue'),
   }
+
 ]
 
 const router = createRouter({

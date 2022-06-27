@@ -1,9 +1,11 @@
 import sys
 
+
 sys.path.insert(0, "")
 
 from src.domain.dolls import Doll, DollsRepository
 from src.domain.user import UserRepository, User
+
 
 database_path = "data/dolls.db"
 
